@@ -23,4 +23,23 @@ class LinkedList {
       this.length++;
     }
   }
+  pop() {
+    if (!this.head) {
+      return undefined;
+    }
+    let cur = this.head;
+    let prev = this.head;
+    while (cur.next != null) {
+      prev = cur;
+      cur = cur.next;
+    }
+    this.tail = prev;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
+  }
 }
