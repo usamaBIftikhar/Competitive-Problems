@@ -12,7 +12,7 @@ class LinkedList {
     this.length = 1;
   }
   push(val) {
-    let node = new Node(val);
+    const node = new Node(val);
     if (!this.head) {
       this.tail = node;
       this.head = node;
@@ -41,5 +41,16 @@ class LinkedList {
       this.tail = null;
     }
     return temp;
+  }
+  unshift(val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+      this.length++;
+    }
   }
 }
