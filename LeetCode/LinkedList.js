@@ -53,4 +53,19 @@ class LinkedList {
       this.length++;
     }
   }
+  shift() {
+    if (!this.head) {
+      return undefined;
+    } else {
+      let cur = this.head;
+      this.head = cur.next;
+      cur.next = null;
+      this.length--;
+      if (this.length === 0) {
+        this.head = null;
+        this.tail = null;
+      }
+      return cur;
+    }
+  }
 }
