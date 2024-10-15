@@ -68,4 +68,7 @@ class LinkedList {
       return cur;
     }
   }
+  getFirst() {
+    return this.head;
+  }
 }
