@@ -71,4 +71,7 @@ class LinkedList {
   getFirst() {
     return this.head;
   }
+  getLast() {
+    return this.tail;
+  }
 }
