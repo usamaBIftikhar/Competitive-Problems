@@ -13,7 +13,14 @@ class LinkedList {
   }
   push(val) {
     let node = new Node(val);
-    this.tail.next = node;
-    this.tail = node;
+    if (!this.head) {
+      this.tail = node;
+      this.head = node;
+      this.length++;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+      this.length++;
+    }
   }
 }
