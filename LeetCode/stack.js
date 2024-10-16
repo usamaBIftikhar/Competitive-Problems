@@ -19,4 +19,23 @@ class Stack {
     this.length++;
     return this;
   }
+  pop() {
+    if (!this.top) {
+      return undefined;
+    }
+    let cur = this.top;
+    this.top = this.top.next;
+    cur.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.top = null;
+    }
+    return cur;
+  }
 }
+
+let stack = new Stack(0);
+stack.push(10);
+stack.push(15);
+console.log(stack.pop());
+console.log(stack);
