@@ -36,10 +36,23 @@ class Queue {
     }
     return cur;
   }
+  min() {
+    if (!this.front) {
+      return undefined;
+    }
+    let cur = this.front;
+    let min = cur.data;
+    while (cur.next) {
+      if (cur.data < min) {
+        min = cur.data;
+      }
+      cur = cur.next;
+    }
+    return min;
+  }
 }
 
 let queue = new Queue(2);
 queue.enqueue(1);
 queue.enqueue(6);
-console.log(queue.dequeue());
-console.log(queue);
+console.log(queue.min());
