@@ -38,6 +38,18 @@ class DoubleLinkedList {
     }
     return cur;
   }
+  unshift(val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    }
+    this.head.prev = node;
+    node.next = this.head;
+    this.head = node;
+    this.length++;
+    return true;
+  }
 }
 
 let doubleLinkedList = new DoubleLinkedList(0);
