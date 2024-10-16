@@ -32,10 +32,26 @@ class Stack {
     }
     return cur;
   }
+  min() {
+    if (!this.top) {
+      return undefined;
+    }
+    let cur = this.top;
+    let min = cur.data;
+    while (cur) {
+      if (cur.data < min) {
+        min = cur.data;
+      }
+      cur = cur.next;
+    }
+    return min;
+  }
 }
 
-let stack = new Stack(0);
+let stack = new Stack(24);
 stack.push(10);
+stack.push(2);
+stack.push(5);
+stack.push(1);
 stack.push(15);
-console.log(stack.pop());
-console.log(stack);
+console.log(stack.min());
