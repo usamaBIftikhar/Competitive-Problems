@@ -75,17 +75,38 @@ class LinkedList {
     return this.tail;
   }
   getByValue(val) {
+    counter = 0;
     let cur = this.head;
     while (cur) {
-      if (cur.data === val) {
+      if (counter === val) {
         return cur;
       }
+      counter++;
       cur = cur.next;
     }
+    return null;
   }
   setByValue(index, value) {
     let cur = this.getByValue(index);
-    cur.data = value;
+    if (cur) {
+      cur.data = value;
+      return true;
+    }
+    return false;
+  }
+  insert(index, value) {
+    if (index === 0) {
+      return this.unshift(value);
+    }
+    if (index === this.length) {
+      return this.push(value);
+    }
+    const node = new Node(value);
+    let cur = this.getByValue(index - 1);
+    node.next = cur.next;
+    cur.next = node;
+    this.length++;
+    return true;
   }
 }
 let linkedList = new LinkedList(1);
@@ -93,6 +114,5 @@ linkedList.push(3);
 linkedList.push(5);
 linkedList.push(1);
 linkedList.push(7);
-//console.log(linkedList.setByValue(5, 2));
-linkedList.setByValue(5, 2);
-console.log(linkedList.getByValue(3));
+linkedList.insert(5, 2);
+console.log(linkedList.getByValue(5));
