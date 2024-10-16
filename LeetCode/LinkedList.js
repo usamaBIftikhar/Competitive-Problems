@@ -75,7 +75,7 @@ class LinkedList {
     return this.tail;
   }
   getByValue(val) {
-    counter = 0;
+    let counter = 0;
     let cur = this.head;
     while (cur) {
       if (counter === val) {
@@ -108,11 +108,14 @@ class LinkedList {
     this.length++;
     return true;
   }
+  size() {
+    return this.length;
+  }
 }
 let linkedList = new LinkedList(1);
 linkedList.push(3);
 linkedList.push(5);
 linkedList.push(1);
 linkedList.push(7);
-linkedList.insert(5, 2);
-console.log(linkedList.getByValue(5));
+linkedList.insert(3, 2);
+console.log(linkedList.size());
