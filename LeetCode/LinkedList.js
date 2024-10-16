@@ -111,6 +111,10 @@ class LinkedList {
   size() {
     return this.length;
   }
+  clear() {
+    this.head = null;
+    this.tail = null;
+  }
 }
 let linkedList = new LinkedList(1);
 linkedList.push(3);
