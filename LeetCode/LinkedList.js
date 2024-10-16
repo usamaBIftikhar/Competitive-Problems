@@ -74,15 +74,25 @@ class LinkedList {
   getLast() {
     return this.tail;
   }
-  getByIndex(index) {
-    let counter = 0;
+  getByValue(val) {
     let cur = this.head;
     while (cur) {
-      if (counter === index) {
+      if (cur.data === val) {
         return cur;
       }
-      counter++;
       cur = cur.next;
     }
   }
+  setByValue(index, value) {
+    let cur = this.getByValue(index);
+    cur.data = value;
+  }
 }
+let linkedList = new LinkedList(1);
+linkedList.push(3);
+linkedList.push(5);
+linkedList.push(1);
+linkedList.push(7);
+//console.log(linkedList.setByValue(5, 2));
+linkedList.setByValue(5, 2);
+console.log(linkedList.getByValue(3));
