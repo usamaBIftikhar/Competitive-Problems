@@ -50,11 +50,26 @@ class DoubleLinkedList {
     this.length++;
     return true;
   }
+  shift() {
+    if (!this.head) {
+      return undefined;
+    }
+    let node = this.head;
+    this.head = this.head.next;
+    this.head.prev = null;
+    node.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return node;
+  }
 }
 
 let doubleLinkedList = new DoubleLinkedList(0);
 doubleLinkedList.push(3);
 doubleLinkedList.push(7);
 doubleLinkedList.push(1);
-console.log(doubleLinkedList.pop());
-console.log(doubleLinkedList);
+console.log(doubleLinkedList.shift());
+//console.log(doubleLinkedList);
