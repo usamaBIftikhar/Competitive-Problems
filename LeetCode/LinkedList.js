@@ -74,4 +74,15 @@ class LinkedList {
   getLast() {
     return this.tail;
   }
+  getByIndex(index) {
+    let counter = 0;
+    let cur = this.head;
+    while (cur) {
+      if (counter === index) {
+        return cur;
+      }
+      counter++;
+      cur = cur.next;
+    }
+  }
 }
