@@ -46,12 +46,14 @@ class Stack {
     }
     return min;
   }
+  top() {
+    return this.top;
+  }
+  isEmpty() {
+    if (!this.top) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-let stack = new Stack(24);
-stack.push(10);
-stack.push(2);
-stack.push(5);
-stack.push(1);
-stack.push(15);
-console.log(stack.min());
