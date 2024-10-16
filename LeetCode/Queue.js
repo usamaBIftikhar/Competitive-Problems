@@ -22,9 +22,24 @@ class Queue {
     this.length++;
     return this;
   }
+  dequeue() {
+    if (!this.front) {
+      return undefined;
+    }
+    let cur = this.front;
+    this.front = cur.next;
+    cur.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.front = null;
+      this.rear = null;
+    }
+    return cur;
+  }
 }
 
 let queue = new Queue(2);
 queue.enqueue(1);
 queue.enqueue(6);
+console.log(queue.dequeue());
 console.log(queue);
