@@ -23,10 +23,26 @@ class DoubleLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    if (!this.head) {
+      return undefined;
+    }
+    let cur = this.tail;
+    this.tail = this.tail.prev;
+    this.tail.next = null;
+    cur.prev = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return cur;
+  }
 }
 
 let doubleLinkedList = new DoubleLinkedList(0);
 doubleLinkedList.push(3);
 doubleLinkedList.push(7);
 doubleLinkedList.push(1);
+console.log(doubleLinkedList.pop());
 console.log(doubleLinkedList);
