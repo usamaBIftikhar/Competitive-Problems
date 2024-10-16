@@ -115,6 +115,19 @@ class LinkedList {
     this.head = null;
     this.tail = null;
   }
+  reverseList() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let next = temp;
+    let prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+  }
 }
 let linkedList = new LinkedList(1);
 linkedList.push(3);
