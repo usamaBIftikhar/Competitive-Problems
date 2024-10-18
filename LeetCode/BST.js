@@ -35,6 +35,16 @@ class BST {
       }
     }
   }
+  includes(val) {
+    if (!this.root) return undefined;
+    let cur = this.root;
+    while (cur) {
+      if (cur.data == val) return cur;
+      if (val < cur.data) cur = cur.left;
+      else cur = cur.right;
+    }
+    return undefined;
+  }
 }
 const tree = new BST();
 tree.insert(8);
@@ -42,4 +52,4 @@ tree.insert(5);
 tree.insert(12);
 tree.insert(4);
 tree.insert(10);
-console.log(tree);
+console.log(tree.includes(8));
