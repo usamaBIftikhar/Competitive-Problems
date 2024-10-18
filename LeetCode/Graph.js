@@ -8,6 +8,14 @@ class Graph {
     }
     return false;
   }
+  addEdge(vrt1, vrt2) {
+    if (this.adjacencyList[vrt1] && this.adjacencyList[vrt2]) {
+      this.adjacencyList[vrt1].push(vrt2);
+      this.adjacencyList[vrt2].push(vrt1);
+      return true;
+    }
+    return false;
+  }
 }
 
 let graph = new Graph();
