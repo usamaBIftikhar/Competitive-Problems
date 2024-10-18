@@ -65,6 +65,13 @@ class BST {
     if (node.right) this.dfsPreOrder(node.right, data);
     return data;
   }
+  dfsInOrder(node = this.root, data = []) {
+    if (!node) return data;
+    if (node.left) this.dfsInOrder(node.left, data);
+    data.push(node.data);
+    if (node.right) this.dfsInOrder(node.right, data);
+    return data;
+  }
 }
 const tree = new BST();
 tree.insert(8);
@@ -72,4 +79,4 @@ tree.insert(5);
 tree.insert(12);
 tree.insert(4);
 tree.insert(10);
-console.log(tree.dfsPreOrder());
+console.log(tree.dfsInOrder());
