@@ -21,7 +21,7 @@ class Graph {
       this.adjacencyList[vrt1] = this.adjacencyList[vrt2].filter(
         (v) => v !== vrt2
       );
-      this.adjacencyList[vrt2] = this.adjacencyList[vrt1].filter(
+      this.adjacencyList[vrt2] = this.adjacencyList[vrt2].filter(
         (v) => v !== vrt1
       );
       return true;
