@@ -16,6 +16,18 @@ class Graph {
     }
     return false;
   }
+  removeEdge(vrt1, vrt2) {
+    if (this.adjacencyList[vrt1] && this.adjacencyList[vrt2]) {
+      this.adjacencyList[vrt1] = this.adjacencyList[vrt2].filter(
+        (v) => v !== vrt2
+      );
+      this.adjacencyList[vrt2] = this.adjacencyList[vrt1].filter(
+        (v) => v !== vrt1
+      );
+      return true;
+    }
+    return false;
+  }
 }
 
 let graph = new Graph();
