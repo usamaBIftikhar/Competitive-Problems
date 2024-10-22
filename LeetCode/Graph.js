@@ -28,6 +28,17 @@ class Graph {
     }
     return false;
   }
+  removeVertex(vrt) {
+    if (!this.adjacencyList[vrt]) return undefined;
+
+    for (let neigbor of this.adjacencyList[vrt]) {
+      this.adjacencyList[neigbor] = this.adjacencyList[neigbor].filter(
+        (v) => v !== vrt
+      );
+    }
+    delete this.adjacencyList[vrt];
+    return this;
+  }
 }
 
 let graph = new Graph();
